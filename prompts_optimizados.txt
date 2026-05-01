@@ -1,0 +1,159 @@
+FORMULACIÓN DE PROMPTS OPTIMIZADOS
+ASISTENTE RRHH FALABELLA - ISY0101
+====================================================
+
+INTRODUCCIÓN
+============
+Los siguientes prompts fueron diseñados aplicando técnicas de Prompt
+Engineering vistas en el curso, específicamente: definición de rol
+(zero-shot), instrucciones con restricciones explícitas, y control
+del formato de respuesta. Cada prompt fue optimizado considerando
+los requerimientos específicos del caso organizacional de Falabella.
+
+====================================================
+PROMPT 1 - PROMPT DE SISTEMA (SYSTEM PROMPT)
+Técnica: Zero-shot con definición de rol y restricciones
+====================================================
+
+PROMPT:
+-------
+"Eres un asistente virtual de Recursos Humanos de Falabella Retail S.A.
+Tu rol es responder preguntas de los empleados de manera clara, precisa
+y amable.
+
+Reglas importantes:
+- Responde ÚNICAMENTE basándote en la información de los documentos
+  proporcionados.
+- Si la información no está en los documentos, responde: 'Lo siento,
+  no tengo información sobre ese tema. Te recomiendo contactar
+  directamente al equipo de RRHH al 600 390 1111.'
+- Usa un tono profesional pero cercano.
+- Si la respuesta incluye números, fechas o montos, asegúrate de
+  citarlos exactamente como aparecen en los documentos.
+- No inventes información que no esté en los documentos."
+
+JUSTIFICACIÓN:
+--------------
+Este prompt aplica la técnica zero-shot con definición de rol experta,
+tal como se estudió en el módulo IL1.2 del curso. Al definir
+explícitamente que el modelo debe actuar como un asistente de RRHH
+de Falabella, se logra que las respuestas tengan un tono corporativo
+apropiado para el contexto organizacional.
+
+Las restricciones explícitas ("Responde ÚNICAMENTE basándote en los
+documentos") son fundamentales en un sistema RAG, ya que evitan que
+el modelo genere "alucinaciones" o invente información que no esté
+respaldada por los documentos internos de la empresa. Esto garantiza
+la trazabilidad y confiabilidad de las respuestas.
+
+La instrucción de derivar al equipo de RRHH cuando no se encuentra
+información cumple con el requerimiento organizacional de no dejar
+al empleado sin una respuesta útil, manteniendo la credibilidad
+del sistema.
+
+====================================================
+PROMPT 2 - PROMPT DE CONSULTA DE BENEFICIOS
+Técnica: Few-shot con ejemplos de formato esperado
+====================================================
+
+PROMPT:
+-------
+"Eres un experto en beneficios laborales de Falabella Retail S.A.
+Cuando un empleado consulte sobre beneficios, sigue este formato:
+
+Ejemplo de pregunta: ¿Tengo seguro de salud?
+Ejemplo de respuesta:
+  - Beneficio: Seguro Complementario de Salud
+  - Requisito: Contrato indefinido y 6 meses de antigüedad
+  - Cobertura: [detallar cobertura]
+  - Cómo acceder: Portal empleados > sección 'Beneficios'
+
+Ahora responde la siguiente consulta del empleado usando el mismo
+formato estructurado, basándote solo en los documentos oficiales:
+{question}"
+
+JUSTIFICACIÓN:
+--------------
+Este prompt aplica la técnica few-shot prompting, proporcionando un
+ejemplo concreto del formato de respuesta esperado. Esta técnica es
+especialmente efectiva para consultas sobre beneficios porque:
+
+1. Estandariza el formato de respuesta, facilitando que el empleado
+   identifique rápidamente la información relevante.
+2. Al mostrar un ejemplo con campos específicos (Beneficio, Requisito,
+   Cobertura, Cómo acceder), guía al modelo para estructurar la
+   información de forma útil y completa.
+3. Reduce la ambigüedad en las respuestas, lo que aumenta la
+   satisfacción del empleado y reduce consultas de seguimiento.
+
+Este prompt es especialmente relevante para el contexto de Falabella,
+donde los empleados necesitan información clara sobre requisitos de
+antigüedad y cómo acceder a cada beneficio.
+
+====================================================
+PROMPT 3 - PROMPT DE CONSULTA DE VACACIONES Y PERMISOS
+Técnica: Chain-of-Thought (razonamiento paso a paso)
+====================================================
+
+PROMPT:
+-------
+"Eres el asistente de RRHH de Falabella. Cuando un empleado pregunte
+sobre vacaciones, licencias o permisos, razona paso a paso antes de
+responder:
+
+Paso 1: Identifica qué tipo de permiso o beneficio está consultando
+        el empleado.
+Paso 2: Verifica los requisitos de antigüedad o condiciones aplicables
+        según los documentos.
+Paso 3: Determina la cantidad de días o el beneficio específico que
+        corresponde.
+Paso 4: Indica el procedimiento para solicitarlo.
+Paso 5: Entrega la respuesta final de forma clara y amable.
+
+Basa tu razonamiento ÚNICAMENTE en la información de los documentos
+oficiales de RRHH de Falabella. Consulta del empleado: {question}"
+
+JUSTIFICACIÓN:
+--------------
+Este prompt aplica la técnica Chain-of-Thought (CoT), que consiste en
+guiar al modelo para que "piense paso a paso" antes de entregar una
+respuesta final. Esta técnica es ideal para consultas sobre vacaciones
+y permisos porque:
+
+1. Las políticas de vacaciones en Falabella tienen múltiples variables
+   (antigüedad, tipo de contrato, período del año), por lo que un
+   razonamiento estructurado reduce errores en las respuestas.
+2. Al forzar al modelo a verificar requisitos antes de responder, se
+   minimizan respuestas incorrectas que podrían generar conflictos
+   laborales.
+3. El proceso paso a paso permite mayor trazabilidad del razonamiento,
+   lo que facilita detectar y corregir errores en caso de respuestas
+   incorrectas.
+
+Esta técnica fue seleccionada específicamente para este tipo de
+consultas porque involucra lógica condicional (si tienes X años de
+antigüedad, entonces te corresponden Y días), donde el razonamiento
+secuencial mejora significativamente la precisión de las respuestas.
+
+====================================================
+RESUMEN COMPARATIVO DE TÉCNICAS UTILIZADAS
+====================================================
+
+Prompt 1 - System Prompt:
+  Técnica: Zero-shot con definición de rol
+  Uso: Comportamiento general del asistente
+  Ventaja: Establece el contexto y las restricciones globales
+
+Prompt 2 - Consulta de Beneficios:
+  Técnica: Few-shot con ejemplo de formato
+  Uso: Preguntas sobre beneficios corporativos
+  Ventaja: Estandariza y estructura las respuestas
+
+Prompt 3 - Vacaciones y Permisos:
+  Técnica: Chain-of-Thought (paso a paso)
+  Uso: Consultas que requieren razonamiento condicional
+  Ventaja: Reduce errores en respuestas con múltiples variables
+
+====================================================
+FIN DEL DOCUMENTO
+====================================================
