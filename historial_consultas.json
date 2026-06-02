@@ -63,5 +63,35 @@
     "timestamp": "2026-06-02 16:30:49",
     "pregunta": "¿Me puedes mostrar mis consultas anteriores?",
     "respuesta": "Últimas consultas registradas:\n\n[2026-06-02 16:30:30]\n  Pregunta: ¿Cuántos días de vacaciones me corresponden si llevo 5 años en la empresa?\n  Respuesta: Consulta registrada en historial (7 total)...\n\n[2026-06-02 16:30:35]\n  Pregunta: ¿Cuándo se paga el sueldo cada mes?\n  Respuesta: Información encontrada en documentos RRHH:\n\nPREGUNTAS FRECUENTES - RECURSOS HUMANOS\nFALABELLA RETAIL...\n\n[2026-06-02 16:30:38]\n  Pregunta: Consulta sobre conflicto grave con la jefatura\n  Respuesta: Escalado a RRHH para orientación....\n\n[2026-06-02 16:30:41]\n  Pregunta: Tengo un conflicto grave con mi jefatura, ¿qué puedo hacer?\n  Respuesta: Consulta registrada en historial (10 total)...\n\n[2026-06-02 16:30:45]\n  Pregunta: ¿Cuántas vacaciones me corresponden si llevo 3 años?\n  Respuesta: Con 3 año(s) de servicio en Falabella, corresponden 17 días hábiles de vacaciones anuales....\n"
+  },
+  {
+    "timestamp": "2026-06-02 17:18:19",
+    "pregunta": "¿Cuántos días de vacaciones me corresponden si llevo 5 años en la empresa?",
+    "respuesta": "Con 5 años de servicio en Falabella, corresponden 20 días hábiles de vacaciones anuales."
+  },
+  {
+    "timestamp": "2026-06-02 17:18:20",
+    "pregunta": "¿Cuántos días de vacaciones me corresponden si llevo 5 años en la empresa?",
+    "respuesta": "He registrado tu consulta en el historial. Si tienes más preguntas, aquí estoy para ayudarte."
+  },
+  {
+    "timestamp": "2026-06-02 17:18:25",
+    "pregunta": "¿Cuándo se paga el sueldo cada mes?",
+    "respuesta": "El sueldo se paga el último día hábil de cada mes mediante depósito bancario en la cuenta registrada por el trabajador. Además, puedes acceder a tu liquidación de sueldo mensual a través del portal de empleados desde el día 25 de cada mes.\n\nHe registrado tu consulta en el historial. Si tienes más preguntas, no dudes en preguntar."
+  },
+  {
+    "timestamp": "2026-06-02 17:18:29",
+    "pregunta": "Tengo un conflicto grave con mi jefatura, ¿qué puedo hacer?",
+    "respuesta": "He escalado tu consulta al equipo de RRHH para que puedan atender tu conflicto grave con la jefatura. Un ejecutivo se pondrá en contacto contigo en un plazo máximo de 48 horas hábiles.\n\nPuedes comunicarte con ellos a través de los siguientes canales:\n- Teléfono: 600 390 1111 (lunes a viernes, 9:00 a 18:00 hrs)\n- Correo: rrhh@falabella.cl\n- Portal interno: intranet.falabella.cl/rrhh\n\nHe registrado tu consulta en el historial. Si necesitas más ayuda, no dudes en preguntar."
+  },
+  {
+    "timestamp": "2026-06-02 17:18:32",
+    "pregunta": "¿Cuántas vacaciones me corresponden si llevo 3 años?",
+    "respuesta": "Si llevas 3 años en la empresa, te corresponden 17 días hábiles de vacaciones anuales.\n\nHe registrado tu consulta en el historial. Si tienes más preguntas, aquí estoy para ayudarte."
+  },
+  {
+    "timestamp": "2026-06-02 17:18:37",
+    "pregunta": "¿Me puedes mostrar mis consultas anteriores?",
+    "respuesta": "Aquí tienes un resumen de tus últimas consultas registradas:\n\n1. **¿Cuántos días de vacaciones me corresponden si llevo 5 años en la empresa?**\n   - Respuesta: Con 5 años de servicio en Falabella, corresponden 20 días hábiles de vacaciones anuales.\n\n2. **¿Cuándo se paga el sueldo cada mes?**\n   - Respuesta: El sueldo se paga el último día hábil de cada mes mediante depósito bancario en la cuenta registrada.\n\n3. **Tengo un conflicto grave con mi jefatura, ¿qué puedo hacer?**\n   - Respuesta: He escalado tu consulta al equipo de RRHH para que puedan atender tu conflicto grave con la jefatura.\n\n4. **¿Cuántas vacaciones me corresponden si llevo 3 años?**\n   - Respuesta: Si llevas 3 años en la empresa, te corresponden 17 días hábiles de vacaciones anuales.\n\nSi necesitas más información o tienes otras preguntas, no dudes en decírmelo."
   }
 ]

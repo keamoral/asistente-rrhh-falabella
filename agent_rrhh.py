@@ -99,30 +99,36 @@ def consultar_agente(pregunta: str) -> str:
     print(f"👤 Empleado: {pregunta}")
     print(f"{'='*60}")
 
-    # Agrega la pregunta al historial de sesión (memoria corto plazo)
     historial_sesion.append(HumanMessage(content=pregunta))
-
-    # Limita a las últimas 5 interacciones (ventana de memoria)
     mensajes_ventana = historial_sesion[-10:]
 
     resultado = agent_executor.invoke({"messages": mensajes_ventana})
     mensajes_respuesta = resultado.get("messages", [])
 
-    # Extrae la última respuesta del agente
+    # Busca la última respuesta del agente que no sea una tool call
     respuesta = ""
     for msg in reversed(mensajes_respuesta):
-        if hasattr(msg, "content") and msg.content and not hasattr(msg, "tool_calls"):
-            respuesta = msg.content
+        tipo = type(msg).__name__
+        contenido = getattr(msg, "content", "")
+        tool_calls = getattr(msg, "tool_calls", [])
+
+        if tipo == "AIMessage" and contenido and not tool_calls:
+            respuesta = contenido
             break
+
+    # Si no encontró respuesta limpia, busca el último mensaje con contenido
+    if not respuesta:
+        for msg in reversed(mensajes_respuesta):
+            contenido = getattr(msg, "content", "")
+            if contenido and isinstance(contenido, str) and len(contenido) > 20:
+                respuesta = contenido
+                break
 
     if not respuesta:
         respuesta = "No se pudo obtener una respuesta."
 
-    # Guarda la respuesta en el historial de sesión
     from langchain_core.messages import AIMessage
     historial_sesion.append(AIMessage(content=respuesta))
-
-    # Guarda en memoria de largo plazo
     guardar_en_largo_plazo(pregunta, respuesta)
 
     print(f"\n🤖 Agente RRHH: {respuesta}")
